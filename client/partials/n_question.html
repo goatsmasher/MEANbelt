@@ -1,0 +1,24 @@
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <h3 class="navbar-text">BlackBelt Exam<small> by joshua parsels</small></h3>
+        </ul>
+        <ul ng-if="currentUser" class="navbar-nav navbar-right">
+            <a href="#!/dashboard" type="button" class="btn btn-default navbar-btn">Home</a>
+            <a href="/logout" type="button" class="btn btn-default navbar-btn">Sign Out</a>
+            <p class="navbar-text">Signed in as {{currentUser.username}}</p>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1>New Question</h1>
+    <div ng-controller="questionController">
+        <form ng-submit="newQuestion()">
+            Question: <textarea ng-model="question.question" class="form-control" rows="3" required></textarea> Description:
+            (optional)<textarea ng-model="question.description" class="form-control" rows="3"></textarea>
+            <p ng-if- "error" style="color:red">{{error}}</p>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="#!/dashboard" role="button" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+</div>

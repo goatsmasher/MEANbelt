@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <h3 class="navbar-text">BlackBelt Exam<small> by joshua parsels</small></h3>
+        </ul>
+    </div>
+</nav>
+<div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <form ng-submit="login()">
+                <div class="form-group">
+                    <label for="username">Login with username:</label>
+                    <input type="text" ng-model="username.username" class="form-control" required minlength="3">
+                </div>
+                <p><small style="color:blue">*Username must be at least 3 characters long*</small></p>
+                <input type="submit" class="btn btn-success text-sm-right" value="Submit">
+                <p ng-repeat="error in errors" style="color:red">{{error}}</p>
+            </form>
+        </div>
+    </div>

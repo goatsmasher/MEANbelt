@@ -1,0 +1,42 @@
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <h3 class="navbar-text">BlackBelt Exam<small> by joshua parsels</small></h3>
+        </ul>
+        <ul ng-if="currentUser" class="navbar-nav navbar-right">
+            <a href="#!/dashboard" type="button" class="btn btn-default navbar-btn">Home</a>
+            <a href="/logout" type="button" class="btn btn-default navbar-btn">Sign Out</a>
+            <p class="navbar-text">Signed in as {{currentUser.username}}</p>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1>Welcome, {{currentUser.username}}!</h1>
+    <a href="#!/new_question" role="button" class="btn btn-success">Add a Question</a>
+    <input type="text" ng-model="topicFilter" placeholder="Search">
+    <div>
+        <div class="row col-md-6" ng-controller="questionController">
+
+            <table class="table table-striped" ng-if="allQuestions.length > 0">
+                <thead>
+                    <th>Questions</th>
+                    <th>Answers</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="question in allQuestions | filter: topicFilter ">
+                        <td>{{question.question}}</td>
+                        <td>{{question._answers.length}}</td>
+                        <td><a href="#!/show/{{question._id}}">Show</a> | <a href="#!/question/{{question._id}}/new_answer">Answer</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <img src="cats.png" alt="cat for jack">
+            <audio controls>
+                <source src="Sad-cat.mp3" type="audio/mpeg">SOUNDS!</audio>
+        </div>
+    </div>
+</div>

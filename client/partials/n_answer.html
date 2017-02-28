@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <h3 class="navbar-text">BlackBelt Exam<small> by joshua parsels</small></h3>
+        </ul>
+        <ul ng-if="currentUser" class="navbar-nav navbar-right">
+            <a href="#!/dashboard" type="button" class="btn btn-default navbar-btn">Home</a>
+            <a href="/logout" type="button" class="btn btn-default navbar-btn">Sign Out</a>
+            <p class="navbar-text">Signed in as {{currentUser.username}}</p>
+        </ul>
+    </div>
+</nav>
+<div class="container" ng-controller="questionController">
+    <a href="#!/show/{{thisQuestion}}" type="button" class="btn btn-warning">Go Back To Question</a>
+    <div ng-repeat="question in allQuestions" ng-if="question._id == thisQuestion">
+        <h1>{{question.question}}?</h1>
+        <h5>{{question.description}}</h5>
+    </div>
+    <div ng-controller="answerController">
+
+        <form ng-submit="newAnswer(answer, thisQuestion)">
+            Your Answer: <textarea ng-model="answer.answer" class="form-control" rows="3" required></textarea> Supporting
+            details for your answer: (optional)<textarea ng-model="answer.details" class="form-control" rows="3"></textarea>
+            <p ng-if- "error" style="color:red">{{error}}</p>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="#!/dashboard" role="button" class="btn btn-danger">Cancel</a>
+        </form>
+
+    </div>
+</div>

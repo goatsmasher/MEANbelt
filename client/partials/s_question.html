@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <h3 class="navbar-text">BlackBelt Exam<small> by joshua parsels</small></h3>
+        </ul>
+        <ul ng-if="currentUser" class="navbar-nav navbar-right">
+            <a href="#!/dashboard" type="button" class="btn btn-default navbar-btn">Home</a>
+            <a href="/logout" type="button" class="btn btn-default navbar-btn">Sign Out</a>
+            <p class="navbar-text">Signed in as {{currentUser.username}}</p>
+        </ul>
+    </div>
+</nav>
+<div class="container" ng-controller="questionController">
+    <a href="#!/question/{{thisQuestion}}/new_answer" type="button" class="btn btn-primary">Answer This Question</a>
+    <div ng-repeat="question in allQuestions" ng-if="question._id == thisQuestion">
+        <h1>{{question.question}}?</h1>
+        <h5>{{question.description}}</h5>
+    </div>
+    <div ng-controller="answerController">
+        <div ng-repeat="answer in allAnswers | orderBy: '-likes'" ng-if="thisQuestion == answer._question">
+            <h3>{{answer.author}}</h3>
+            <h4>{{answer.answer}}</h4>
+            <h5>{{answer.details}}</h5>
+            <p>{{answer.likes}} likes <button ng-click="like(answer._id)">Like</button></p>
+        </div>
+    </div>
+</div>
