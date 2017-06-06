@@ -9,7 +9,7 @@
 
 
     function userController($scope, userFactory, $routeParams, moment) {
-        var uC = $scope;
+        const uC = $scope;
         uC.currentUser = {};
         uC.errors = [];
         uC.login = login;

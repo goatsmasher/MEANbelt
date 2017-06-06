@@ -8,7 +8,7 @@
     questionFactory.$inject = ["$http", "$location"];
 
     function questionFactory($http, $location) {
-        var factory = {
+        const factory = {
             newQuestion: newQuestion,
             allQuestions: allQuestions,
         };

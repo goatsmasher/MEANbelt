@@ -1,8 +1,8 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+const mongoose = require("mongoose"),
+	Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
-    username: { type: String, required: true, minlength: 3 },
+const UserSchema = new Schema({
+	username: { type: String, required: true, minlength: 3 },
 
 
 }, { timestamps: true });

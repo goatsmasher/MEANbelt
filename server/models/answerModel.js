@@ -1,12 +1,12 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+const mongoose = require("mongoose"),
+	Schema = mongoose.Schema;
 
-var AnswerSchema = new Schema({
-    answer: { type: String, required: true, minlength: 5 },
-    details: { type: String, required: false },
-    likes: { type: Number, default: 0 },
-    author: { type: String, required: true },
-    _question: { type: Schema.Types.ObjectId, ref: "Question" },
+const AnswerSchema = new Schema({
+	nswer: { type: String, required: true, minlength: 5 },
+	details: { type: String, required: false },
+	likes: { type: Number, default: 0 },
+	author: { type: String, required: true },
+	_question: { type: Schema.Types.ObjectId, ref: "Question" },
 
 
 }, { timestamps: true });

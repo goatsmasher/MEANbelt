@@ -1,4 +1,4 @@
-var mongoose = require("mongoose"),
+const mongoose = require("mongoose"),
   fs = require("fs"),
   path = require("path"),
   models_path = path.join(__dirname, "../models"),

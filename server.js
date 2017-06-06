@@ -1,23 +1,24 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var path = require("path");
-var session = require("express-session");
+const express = require("express"),
+	app = express(),
+	bodyParser = require("body-parser"),
+	path = require("path"),
+	session = require("express-session");
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, "./client")));
-app.use(express.static(path.join(__dirname, "./node_modules")));
-app.use(session({
-    secret: "black_belting",
-    resave: true,
-    saveUninitialized: true,
-    cookie: { secure: false }
-}));
+app
+	.use(bodyParser.json())
+	.use(bodyParser.urlencoded({ extended: true }))
+	.use(express.static(path.join(__dirname, "./client")))
+	.use(express.static(path.join(__dirname, "./node_modules")))
+	.use(session({
+		secret: "black_belting",
+		resave: true,
+		saveUninitialized: true,
+		cookie: { secure: false }
+	}))
 
-app.use("/js", express.static(__dirname + "/node_modules/bootstrap/dist/js"));
-app.use("/css", express.static(__dirname + "/node_modules/bootstrap/dist/css"));
-app.use("/js", express.static(__dirname + "/node_modules/jquery/dist"));
+	.use("/js", express.static(__dirname + "/node_modules/bootstrap/dist/js"))
+	.use("/css", express.static(__dirname + "/node_modules/bootstrap/dist/css"))
+	.use("/js", express.static(__dirname + "/node_modules/jquery/dist"));
 
 require("./server/configs/mongoose.js");
 require("./server/configs/routes.js")(app);

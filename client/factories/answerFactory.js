@@ -8,13 +8,14 @@
     answerFactory.$inject = ["$http", "$location"];
 
     function answerFactory($http, $location) {
-        var factory = {
+        const factory = {
             newAnswer: newAnswer,
             allAnswers: allAnswers,
             like: like,
         };
         return factory;
         //////////////
+
         function newAnswer(answer, question_id) {
             answer._question = question_id;
             $http.post("/answer/new", answer).then(function () {

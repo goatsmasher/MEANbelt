@@ -8,7 +8,7 @@
     userFactory.$inject = ["$http", "$location"];
 
     function userFactory($http, $location) {
-        var factory = {
+        const factory = {
             allUsers: allUsers,
             checkSession: checkSession,
             login: login,
